@@ -2,7 +2,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
-import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
 dotenv.config();
 
@@ -18,8 +17,8 @@ app.use(cors());
 app.use(morgan("dev"));
 
 // router
-app.use("/api/v1", userRouter);
-app.use("/api/v1/auth", authRouter);
+app.use("/user", userRouter);
+// app.use("/api/v1/auth", authRouter);
 
 // routing
 app.get("/", (req, res) => {
